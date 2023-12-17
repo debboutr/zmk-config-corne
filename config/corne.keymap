@@ -22,7 +22,7 @@
       timeout-ms = <50>;
       key-positions = <21 22>;
       layers = <BASE>;
-      bindings = <&kp '>; 
+      bindings = <&kp SINGLE_QUOTE>; 
     };
     
     combo_combo_SHIFT {
