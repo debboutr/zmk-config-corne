@@ -1,69 +1,78 @@
 // keymapper.dev
+
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 
 #define BASE 0
 #define LOWER 1
 #define RAISE 2
 
 / {
-  combos {
-    compatible = "zmk,combos";
-    
-    combo_combo_tab {
-      timeout-ms = <50>;
-      key-positions = <13 14>;
-      layers = <BASE>;
-      bindings = <&kp TAB>; 
-    };
-    
-    combo_combo_SINGLE_QUOTE {
-      timeout-ms = <50>;
-      key-positions = <21 22>;
-      layers = <BASE>;
-      bindings = <&kp SINGLE_QUOTE>; 
-    };
-    
-    combo_combo_SHIFT {
-      timeout-ms = <50>;
-      key-positions = <15 16>;
-      layers = <>;
-      bindings = <&kp RSFT>; 
-    };
-  };
+    combos {
+        compatible = "zmk,combos";
 
-  behaviors {
-    hm: homerow_mods {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS";
-      #binding-cells = <2>;
-      tapping-term-ms = <250>;
-      quick_tap_ms = <0>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
-    };
-  };
-  keymap {
-    compatible = "zmk,keymap";
+        combo_combo_tab {
+            timeout-ms = <50>;
+            key-positions = <13 14>;
+            layers = <BASE>;
+            bindings = <&kp TAB>;
+        };
 
-    Base_layer {
-      bindings = <
-        &trans &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &trans &trans &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SEMICOLON &trans &trans &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp PERIOD &kp SLASH &trans &kp LEFT_GUI &lt LOWER TAB &hm LSHFT BACKSPACE &hm RALT SPACE &lt RAISE RETURN &hm RCTRL ESCAPE 
-      >;
+        combo_combo_SINGLE_QUOTE {
+            timeout-ms = <50>;
+            key-positions = <21 22>;
+            layers = <BASE>;
+            bindings = <&kp SINGLE_QUOTE>;
+        };
+
+        combo_combo_SHIFT {
+            timeout-ms = <50>;
+            key-positions = <15 16>;
+            bindings = <&kp RSFT>;
+        };
     };
 
-    Lower_layer {
-      bindings = <
-        &trans &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4 &kp NUMBER_5 &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 &trans &trans &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &kp LEFT_ARROW &kp DOWN_ARROW &kp UP_ARROW &kp RIGHT_ARROW &trans &trans &trans &kp LEFT_SHIFT &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &kp LEFT_GUI &trans &kp SPACE &kp RETURN &trans &kp RIGHT_ALT 
-      >;
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
     };
 
-    Raise_layer {
-      bindings = <
-        &trans &kp EXCLAMATION &kp AT_SIGN &kp HASH &kp DOLLAR &kp PERCENT &kp CARET &kp AMPERSAND &kp ASTERISK &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &trans &trans &trans &trans &trans &trans &trans &kp MINUS &kp EQUAL &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp BACKSLASH &trans &trans &trans &trans &trans &trans &trans &kp UNDERSCORE &kp PLUS &kp LEFT_BRACE &kp RIGHT_BRACE &kp PIPE &trans &kp LEFT_GUI &trans &kp LEFT_CONTROL &kp RETURN &trans &kp RIGHT_ALT 
-      >;
-    };
+    keymap {
+        compatible = "zmk,keymap";
 
-  };
+        Base_layer {
+            bindings = <
+&trans  &kp Q             &kp W  &kp E         &kp R          &kp T              &kp Y           &kp U                &kp I             &kp O       &kp P          &trans
+&trans  &hm LEFT_SHIFT A  &kp S  &kp D         &kp F          &kp G              &kp H           &kp J                &kp K             &kp L       &kp SEMICOLON  &trans
+&trans  &hm LCTRL Z       &kp X  &kp C         &kp V          &kp B              &kp N           &kp M                &kp COMMA         &kp PERIOD  &kp SLASH      &trans
+                                 &kp LEFT_GUI  &lt LOWER TAB  &hm LSHFT SPACE    &hm RALT ENTER  &lt RAISE BACKSPACE  &hm RCTRL ESCAPE
+            >;
+        };
+
+        Lower_layer {
+            bindings = <
+&trans  &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8   &kp NUMBER_9     &kp NUMBER_0  &trans
+&trans  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &trans        &trans
+&trans  &kp LEFT_SHIFT  &trans        &trans        &trans        &trans          &kp K_MUTE      &trans          &trans         &trans           &trans        &trans
+                                      &kp LEFT_GUI  &trans        &kp SPACE       &kp RETURN      &trans          &kp RIGHT_ALT
+            >;
+        };
+
+        Raise_layer {
+            bindings = <
+&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH      &kp DOLLAR  &kp PERCENT         &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&trans  &trans           &trans       &trans        &trans      &trans              &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp BACKSLASH          &trans
+&trans  &trans           &trans       &trans        &trans      &trans              &kp UNDERSCORE  &kp PLUS       &kp LEFT_BRACE    &kp RIGHT_BRACE       &kp PIPE               &trans
+                                      &kp LEFT_GUI  &trans      &kp LEFT_CONTROL    &kp RETURN      &trans         &kp RIGHT_ALT
+            >;
+        };
+    };
 };
