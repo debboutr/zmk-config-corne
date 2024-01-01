@@ -54,6 +54,11 @@
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <32 33>;
         };
+
+        layer_3 {
+            bindings = <&sl 3>;
+            key-positions = <37 40>;
+        };
     };
 
     behaviors {
@@ -95,6 +100,15 @@
 &trans  &trans           &trans       &trans        &kp ESCAPE  &kp GRAVE           &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp BACKSLASH          &trans
 &trans  &trans           &trans       &trans        &trans      &trans              &kp UNDERSCORE  &kp PLUS       &kp LEFT_BRACE    &kp RIGHT_BRACE       &kp PIPE               &trans
                                       &kp LEFT_GUI  &trans      &kp LEFT_CONTROL    &kp RETURN      &trans         &kp RIGHT_ALT
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &kp F1  &kp F2    &kp F7   &kp F8   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &kp F3  &kp F4    &kp F9   &kp F10  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &kp F5  &kp F6    &kp F11  &kp F12  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans   &trans   &trans
             >;
         };
     };
