@@ -88,7 +88,7 @@
         Lower_layer {
             bindings = <
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6   &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9   &kp NUMBER_0  &trans
-&trans  &trans        &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5    &hm HOME LEFT  &kp DOWN_ARROW     &kp UP_ARROW     &hm END RIGHT  &trans        &trans
+&trans  &bt BT_CLR    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5    &hm HOME LEFT  &kp DOWN_ARROW     &kp UP_ARROW     &hm END RIGHT  &trans        &trans
 &trans  &trans        &trans        &trans        &trans        &trans          &kp K_MUTE     &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans         &trans        &trans
                                     &kp LEFT_GUI  &trans        &kp SPACE       &kp RETURN     &trans             &kp RIGHT_ALT
             >;
